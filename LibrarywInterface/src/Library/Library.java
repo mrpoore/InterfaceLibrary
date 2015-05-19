@@ -17,6 +17,12 @@ public class Library {
 	
 	public static void main(String[] args) {
 		
+		
+		//Initialize Books
+		
+		for (int i = 0; i < books.length; i++)
+			books[i] = new Book();
+		
 		//Add the books
 		addBooks();
 		
@@ -62,9 +68,19 @@ public class Library {
 	}
 	private static void addBooks()
 	{
-		for (int i = 0; i < books.length; i++ )
+		System.out.println("How many books do you want to enter?");
+		int numBooks = nInput.nextInt();
+		
+		int b = 0;
+		
+		for (b = 0; b < books.length && !books[b].getTitle().equals(""); b++)
 		{
-			books[i] = new Book();
+			
+		}
+		
+		
+		for (int i = b; i < numBooks+b && i < maxBooks; i++ )
+		{
 			System.out.println("Enter a book name");
 			books[i].setTitle(tInput.nextLine());
 			System.out.println("the Author?");
