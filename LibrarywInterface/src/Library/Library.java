@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 
 public class Library {
-	static int minCustomers = 100;
-    static Book[] books = new Book[10];
+	static int maxCustomers = 100;
+	static int maxBooks = 100;
+	static Customer[] customers = new Customer[maxCustomers];
+    static Book[] books = new Book[maxBooks];
 	static int answer = 0;
     
 	//Create a scanner object each for text and numbers
@@ -25,19 +27,39 @@ public class Library {
 			System.out.println("2 checkout a book");
 			System.out.println("3 checkin a book");
 			System.out.println("4 add a customer");
-		}while (answer == 0);
+			answer = nInput.nextInt();
+			
+			if (answer == 1)
+				displayBooks();
+			else if (answer == 2)
+				checkout();
+			else if (answer == 3)
+				checkin();
+			else if (answer == 4)
+				addCustomer();
+					
+		}while (answer != 0);
 		
 		
 	}
 	
-	private static int addCustomer()
+	private static void addCustomer()
+	{
+		
+	
+	} 
+	
+	private static void checkout()
 	{
 		
 		
-		
-		return 0;
-	} 
+	}
 	
+	private static void checkin()
+	{
+		
+		
+	}
 	private static void addBooks()
 	{
 		for (int i = 0; i < books.length; i++ )
