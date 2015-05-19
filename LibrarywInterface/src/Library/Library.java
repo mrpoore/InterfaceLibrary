@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class Library {
 	static int maxCustomers = 100;
 	static int maxBooks = 100;
+	static int lastBook = 0;
 	static Customer[] customers = new Customer[maxCustomers];
     static Book[] books = new Book[maxBooks];
-	static int answer = 0;
+    static int answer = 0;
     
 	//Create a scanner object each for text and numbers
 	private static Scanner tInput = new Scanner(System.in);
@@ -36,7 +37,10 @@ public class Library {
 			answer = nInput.nextInt();
 			
 			if (answer == 1)
+				{
+				System.out.println(lastBook);
 				displayBooks();
+				}
 			else if (answer == 2)
 				checkout();
 			else if (answer == 3)
@@ -77,9 +81,10 @@ public class Library {
 		{
 			
 		}
+		lastBook = b;
+		System.out.println(lastBook);
 		
-		
-		for (int i = b; i < numBooks+b && i < maxBooks; i++ )
+		for (int i = lastBook; i < numBooks+lastBook && i < maxBooks; i++ )
 		{
 			System.out.println("Enter a book name");
 			books[i].setTitle(tInput.nextLine());
@@ -87,13 +92,13 @@ public class Library {
 			books[i].setAuthor(tInput.nextLine());
 			
 		}
-		
+		lastBook = b+numBooks;
 
 	}
 	
 	private static void displayBooks()
 	{
-		for (int i = 0; i < books.length; i++ )
+		for (int i = 0; i < lastBook; i++ )
 		{
 			System.out.println(books[i].getTitle() + ", by " + books[i].getAuthor());
 		}
