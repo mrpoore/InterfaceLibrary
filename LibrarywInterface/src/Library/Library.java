@@ -5,8 +5,11 @@ import java.util.Scanner;
 
 public class Library {
 	static int maxCustomers = 100;
+	static int lastCustomer = 0;
+	
 	static int maxBooks = 100;
 	static int lastBook = 0;
+	
 	static Customer[] customers = new Customer[maxCustomers];
     static Book[] books = new Book[maxBooks];
     static int answer = 0;
@@ -23,9 +26,6 @@ public class Library {
 		
 		for (int i = 0; i < books.length; i++)
 			books[i] = new Book();
-		
-		//Add the books
-		addBooks();
 		
 		//Menu
 		menu();
@@ -82,7 +82,31 @@ public class Library {
 	
 	private static void addCustomer()
 	{
+		System.out.println("How many books do you want to enter?");
+		int numCusts = nInput.nextInt();
 		
+		int c = 0;
+		
+		for (c = 0; c < customers.length && !customers[c].getFName().equals(""); c++)
+		{
+			
+		}
+		lastBook = c;
+		System.out.println(lastBook);
+		
+		for (int i = lastCustomer; i < numCusts+lastCustomer && i < maxCustomers; i++ )
+		{
+			System.out.println("Enter the First name");
+			customers[i].setFName(tInput.nextLine());
+			System.out.println("the Last Name?");
+			customers[i].setLName(tInput.nextLine());
+			System.out.println("ID?");
+			customers[i].setID((long)Math.random()*9999);
+			
+		}
+		lastBook = c+numCusts;
+
+	
 	
 	} 
 	
