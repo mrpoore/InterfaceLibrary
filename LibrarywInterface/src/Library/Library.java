@@ -69,11 +69,12 @@ public class Library {
 		int i;
 		System.out.println("Which book");
 		String t = tInput.nextLine();
-		
+		System.out.println(lastBook);
 		for (i = 0; i < lastBook; i++)
 		{
-			if (books[i].getTitle().equals(t))
+			if (books[i].getTitle().toLowerCase().equals(t.toLowerCase()))
 				return i;
+			System.out.println(i);
 		}
 		return 0;
 		
@@ -91,7 +92,7 @@ public class Library {
 		if (bookI!=0)
 		{
 			books[bookI].checkOut(1);
-			System.out.println(books[bookI] + "is checked out");
+			System.out.println(books[bookI].getTitle() + " is now checked out");
 		}
 		else
 			System.out.println("The book wasn't found.");
@@ -134,7 +135,7 @@ public class Library {
 	{
 		for (int i = 0; i < lastBook; i++ )
 		{
-			System.out.println(books[i].getTitle() + ", by " + books[i].getAuthor());
+			System.out.println(books[i].getTitle() + ", by " + books[i].getAuthor() + " " + books[i].getCheckedOut());
 		}
 		
 
