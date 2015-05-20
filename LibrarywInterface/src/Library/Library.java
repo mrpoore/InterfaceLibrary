@@ -27,6 +27,15 @@ public class Library {
 		//Add the books
 		addBooks();
 		
+		//Menu
+		menu();
+
+		
+	}
+	
+	private static void menu()
+	{
+		//The Main Menu
 		do
 		{
 			System.out.println("What would you like to do?");
@@ -34,6 +43,7 @@ public class Library {
 			System.out.println("2 checkout a book");
 			System.out.println("3 checkin a book");
 			System.out.println("4 add a customer");
+			System.out.println("5 add books");
 			answer = nInput.nextInt();
 			
 			if (answer == 1)
@@ -47,9 +57,25 @@ public class Library {
 				checkin();
 			else if (answer == 4)
 				addCustomer();
+			else if (answer == 5)
+				addBooks();
 					
 		}while (answer != 0);
 		
+	}
+	
+	private static int findBook()
+	{
+		int i;
+		System.out.println("Which book");
+		String t = tInput.nextLine();
+		
+		for (i = 0; i < lastBook; i++)
+		{
+			if (books[i].getTitle().equals(t))
+				return i;
+		}
+		return 0;
 		
 	}
 	
@@ -61,7 +87,15 @@ public class Library {
 	
 	private static void checkout()
 	{
-		
+		int bookI = findBook();
+		if (bookI!=0)
+		{
+			books[bookI].checkOut(1);
+			System.out.println(books[bookI] + "is checked out");
+		}
+		else
+			System.out.println("The book wasn't found.");
+			
 		
 	}
 	
