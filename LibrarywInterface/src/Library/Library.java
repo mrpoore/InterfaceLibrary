@@ -76,7 +76,7 @@ public class Library {
 				return i;
 			System.out.println(i);
 		}
-		return 0;
+		return -1;
 		
 	}
 	
@@ -89,7 +89,7 @@ public class Library {
 	private static void checkout()
 	{
 		int bookI = findBook();
-		if (bookI!=0)
+		if (bookI!=-1)
 		{
 			books[bookI].checkOut(1);
 			System.out.println(books[bookI].getTitle() + " is now checked out");
